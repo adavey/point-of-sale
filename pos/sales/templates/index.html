@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Point of Sale Home</h1>
+  <p>Welcome to Point of Sale System, a website developed by <em>Alan Davey</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The system has the following record counts:</p>
+  <ul>
+    <li><strong>Customers:</strong> {{ num_customers }}</li>
+    <li><strong>Items:</strong> {{ num_items }}</li>
+  </ul>
+{% endblock %}

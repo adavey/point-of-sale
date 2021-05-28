@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse # Used to generate URLs by reversing the URL patterns
 
 # Create your models here.
 class MembershipType(models.Model):
@@ -41,3 +42,12 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+class Transaction(models.Model):
+    customer_id = models.ForeignKey(Customer, on_delete=models.RESTRICT)
+    sold_on = models.DateField(auto_now_add=True)
+
+class TransactionDetail(models.Model):
+    transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.RESTRICT)
+    quantity = models.SmallIntegerField
